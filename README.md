@@ -26,21 +26,21 @@ Download the folder titled “Login and Registration System” (no quotes) onto 
 
 When the program is run, the main menu will appear in the console. 
 
-<img align="right" width="490" src="https://drive.google.com/uc?id=1EYTSyBGzgcnHRaud7rnklqxMHM97qwJj" />
+<img width="490" src="https://drive.google.com/uc?id=1EYTSyBGzgcnHRaud7rnklqxMHM97qwJj" />
 
 Enter a number 1-3 to either (1) login to an existing account, (2) create a new profile, or (3) exit the program. Enter in the required credentials as they show up in the console. 
 
-<img align="right" width="490" src="https://drive.google.com/uc?id=1FXo1YzT6wo5jIiXBx-NW24Po-MnB3S22" />
+<img width="490" src="https://drive.google.com/uc?id=1FXo1YzT6wo5jIiXBx-NW24Po-MnB3S22" />
 
-<img align="right" width="490" src="https://drive.google.com/uc?id=13M2qeQ8Nx9tnG37gXTI1A0b4z9jmBZw6" />
+<img width="490" src="https://drive.google.com/uc?id=13M2qeQ8Nx9tnG37gXTI1A0b4z9jmBZw6" />
 
 After logging in/signing up, the account options will appear in the console. Enter a number 1-4 to either (1) Read the information in your profile, (2) reset your password, (3) delete your account, or (4) sign out of your account.
 
-<img align="right" width="490" src="https://drive.google.com/uc?id=1gzs-DHjlpdz3X7DEnx9RskbzgbQ1PAU4" />
+<img width="490" src="https://drive.google.com/uc?id=1gzs-DHjlpdz3X7DEnx9RskbzgbQ1PAU4" />
 
 Now, when you select "Read User Profile", it will show the following information.
 
-<img align="right" width="490" src="https://drive.google.com/uc?id=1QRQ2XSm2nowh8WKhyCAMw285aJJS7tWE" />
+<img width="490" src="https://drive.google.com/uc?id=1QRQ2XSm2nowh8WKhyCAMw285aJJS7tWE" />
 
 When you create a profile, it will appear in the folder “Login and Registration System” as a text file titled “User_your_username_here”, where “your_username_here” is the username for the account.
 
