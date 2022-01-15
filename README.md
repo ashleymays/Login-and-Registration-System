@@ -59,4 +59,4 @@ Special thanks to [Hillary Nyakundi](https://github.com/larymak), whose [article
 
 
 ## License
-This project is covered under the GPL License.
+This project is covered under the MIT License.
