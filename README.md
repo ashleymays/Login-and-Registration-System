@@ -22,8 +22,9 @@ Later on, I hope to implement a way to keep track of the time and date a user la
 
 
 ## How to Install and Run
-Download the folder titled “Login and Registration System” (no quotes) onto your computer. Open the file titled “Login and Registration System.cpp” (no quotes) and run the program. The following information uses the test profile information. The test file is included in the project as a demonstration.
+Either download the .zip folder titled “Login and Registration System” (no quotes) onto your computer, or open the project in Visual Studio. If you downloaded the .zip folder, open the file titled "Login and Registration System.cpp" (no quotes), then run the program in your local IDE. The following step-by-step process uses the example profile information in the "User_test.txt" file that is included in the project.
 
+## How to Use the Project
 When the program is run, the main menu will appear in the console. 
 
 <img width="490" src="https://drive.google.com/uc?id=1EYTSyBGzgcnHRaud7rnklqxMHM97qwJj" />
@@ -55,3 +56,7 @@ std::cout << "Invalid input. Try again." << std::endl << std::endl;
 
 ## Special Thanks
 Special thanks to [Hillary Nyakundi](https://github.com/larymak), whose [article](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/) helped me write this readme, [this website]("https://desktop.arcgis.com/en/arcmap/10.3/tools/supplement/pathnames-explained-absolute-relative-unc-and-url.htm") that taught me about directories and paths, and to the folks at Stack Overflow that taught me about the fstream library, file system library, and Github Markdown.
+
+
+## License
+This project is covered under the GPL License.
