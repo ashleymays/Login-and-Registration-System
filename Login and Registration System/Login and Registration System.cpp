@@ -1,6 +1,6 @@
 /*
     Login and Registration System
-    Create by Ashley Mays
+    Contains the main() function
 */
 
 #include <iostream>
