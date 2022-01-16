@@ -50,8 +50,8 @@ When you create a profile, it will appear in the folder “Login and Registratio
 Credit to [Stack Overflow user Chris](https://stackoverflow.com/users/962089/chris) contributed the following lines as part of an answer to a question on Stack Overflow. They appear twice in the project: in the main() function and the accountOptions() method.
 
 ```C++
+std::cin.clear();
 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-std::cout << "Invalid input. Try again." << std::endl << std::endl;
 ```
 
 ## Special Thanks
