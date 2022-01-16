@@ -1,5 +1,5 @@
 # Login and Registration System
-A complete login and registration system made with C++20.
+A login and registration comsole application made with C++20.
 
 
 
