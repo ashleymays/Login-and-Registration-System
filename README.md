@@ -22,7 +22,8 @@ Later on, I hope to implement a way to keep track of the time and date a user la
 
 
 ## How to Install and Run
-Either download the .zip folder titled “Login and Registration System” (no quotes) onto your computer, or open the project in Visual Studio. If you downloaded the .zip folder, open the file titled "Login and Registration System.cpp" (no quotes), then run the program in your local IDE. The following step-by-step process uses the example profile information in the "User_test.txt" file that is included in the project.
+### Clone the Repository
+Go to the top left corner and click "Fork". This will create a copy of the repository in your Github account. Then navigate to the copied repository on your account titled YOUR_USERNAME/Login-and-Registration-System, where YOUR_USERNAME is your Github username. Click the "Code" button on the main page of the repository. Copy the link under "Clone with HTTPS". Open Git Bash on your desktop. Change the directory shown on the screen in Git Bash to the folder where you want the project to be. Then type ```git clone``` and paste the link to Git Bash. Press "Enter" to create the clone. For more information, <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">consult the Github documentation.</a>
 
 ## How to Use the Project
 When the program is run, the main menu will appear in the console. 
