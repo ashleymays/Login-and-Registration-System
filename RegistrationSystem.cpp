@@ -29,17 +29,17 @@ void System::login() {
     // get username and password
     loginCredentials();
 
-    if (!isRegistered()) {
+    if (!isRegistered(m_username)) {
         std::cout << "There is no user with this username. Press \"Enter\" to return to the main menu.";
         std::cout << std::endl;
         return;
     }
-    else if (isRegistered() && !isCorrectPassword()) {
+    else if (isRegistered(m_username) && !isCorrectPassword()) {
         std::cout << "The password is incorrect. Press \"Enter\" to return to the main menu." << std::endl;
         std::cout << std::endl;
         return;
     }
-    else if (isRegistered() && isCorrectPassword()) {
+    else if (isRegistered(m_username) && isCorrectPassword()) {
         std::cout << "Logged in. Press \"Enter\" to continue.";
         std::cin.get();
         accountOptions();
@@ -56,7 +56,7 @@ void System::signUp() {
     signUpCredentials();
 
     // read through files in folder, make sure user doesn't have an account
-    if (isRegistered()) {
+    if (isRegistered(m_username)) {
         std::cout << "Username taken. Press \"Enter\" to return to the main menu.";
         std::cout << std::endl << std::endl << std::endl;
         return;
@@ -103,7 +103,7 @@ void System::createNewUserProfile() {
     // add the user's information to a new file
     std::string fileName = "User_" + m_username + ".txt";
     std::ofstream file;
-    if (!isRegistered()) {
+    if (!isRegistered(m_username)) {
         file.open(fileName);
         if (file.is_open()) {
             file << "First Name: " << m_firstName << std::endl;
@@ -121,9 +121,10 @@ void System::createNewUserProfile() {
 
 
 
-bool System::isRegistered() {
+bool System::isRegistered(std::string username)
+{
     fs::path myPath( "..\\Login and Registration System" ); // relative path
-    std::string fileName = "User_" + m_username + ".txt";
+    std::string fileName = "User_" + username + ".txt";
 
     // read all files in the project folder
     for (auto& file : fs::recursive_directory_iterator(myPath)) {
@@ -169,9 +170,10 @@ void System::accountOptions() {
         std::cout << "ACCOUNT OPTIONS";
         std::cout << std::endl << std::endl;
         std::cout << "  1. Read User Profile" << std::endl;
-        std::cout << "  2. Reset Password" << std::endl;
-        std::cout << "  3. Delete User" << std::endl;
-        std::cout << "  4. Sign Out" << std::endl;
+        std::cout << "  2. Reset Username" << std::endl;
+        std::cout << "  3. Reset Password" << std::endl;
+        std::cout << "  4. Delete User" << std::endl;
+        std::cout << "  5. Sign Out" << std::endl;
         std::cout << std::endl;
         std::cout << "Enter your option: ";
         std::cin >> input;
@@ -183,21 +185,30 @@ void System::accountOptions() {
             std::cout << std::endl << std::endl << std::endl;
             std::cin.get();
             break;
+
         case 2:
+            resetUsername();
+            std::cout << std::endl << std::endl << std::endl;
+            std::cin.get();
+            break;
+
+        case 3:
             resetPassword();
             std::cout << std::endl << std::endl << std::endl;
             std::cin.get();
             break;
             
-        case 3:
+        case 4:
             deleteUser();
             std::cout << std::endl << std::endl << std::endl;
             return;
-        case 4:
+
+        case 5:
             std::cout << std::endl;
             std::cout << "Signed out. Press \"Enter\" to return to the main menu.";
             std::cout << std::endl << std::endl << std::endl;
-            break;
+            return;
+
         default:
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -206,7 +217,6 @@ void System::accountOptions() {
         }
     }
 }
-
 
 void System::readFile() {
     std::cout << std::endl << std::endl << std::endl;
@@ -228,6 +238,59 @@ void System::readFile() {
     std::cout << "Press \"Enter\" to return to account options.";
 }
 
+void System::resetUsername() {
+    std::string newUsername;
+    std::cout << std::endl;
+
+    do {
+        std::cout << "Enter new username: ";
+        std::getline(std::cin, newUsername);
+    } while (isRegistered(newUsername));
+
+    // delete old user file and make new file with the new username 
+    resetUsername1(newUsername);
+    deleteFile("User_" + m_username + ".txt");
+    std::string oldUsername = m_username;
+    m_username = newUsername;
+
+    std::cout << std::endl;
+    try {
+        if (isDeleted("User_" + oldUsername + ".txt")) {
+            std::cout << "Username changed successfully." << std::endl;
+            std::cout << "Press \"Enter\" to return to account options.";
+            return;
+        }
+        else {
+            throw(false);
+        }
+    }
+    catch (...) {
+        std::cout << "Username change failed.";
+    }
+}
+
+void System::resetUsername1(std::string newUsername) {
+    std::ofstream newFileWrite;
+    std::ifstream oldFileRead;
+    std::string oldFile = "User_" + m_username + ".txt";
+    std::string newFile = "User_" + newUsername + ".txt";
+    std::string usernameLine = "Username: " + m_username;
+    std::string line;
+
+    // read from the user's original file & put the info in a temporary file (except for the username line)
+    newFileWrite.open(newFile, std::ios_base::app);
+    oldFileRead.open(oldFile);
+    while (std::getline(oldFileRead, line)) {
+        if (line != usernameLine) {
+            newFileWrite << line << std::endl;
+        }
+        else {
+            newFileWrite << "Username: " + newUsername << std::endl;
+        }
+    }
+    oldFileRead.close();
+    newFileWrite.close();
+}
 
 void System::resetPassword() {
     std::string newPassword;
@@ -241,15 +304,19 @@ void System::resetPassword() {
     m_password = newPassword;
 
     std::cout << std::endl;
-    if (isDeleted("temp.txt")) {
-        std::cout << "Password changed successfully." << std::endl;
-        std::cout << "Press \"Enter\" to return to account options.";
+    try {
+        if (isDeleted("temp.txt")) {
+            std::cout << "Password changed successfully." << std::endl;
+            std::cout << "Press \"Enter\" to return to account options.";
+        }
+        else {
+            throw(false);
+        }
     }
-    else {
+    catch(...) {
         std::cout << "Password change failed.";
     }
 }
-
 
 void System::makeTempFile(std::string newPassword) {
     std::ofstream tempWrite;
@@ -274,7 +341,6 @@ void System::makeTempFile(std::string newPassword) {
     tempWrite.close();
 }
 
-
 void System::overwriteUserFile() {
     std::string line;
     std::ofstream userWrite;
@@ -291,7 +357,6 @@ void System::overwriteUserFile() {
     tempRead.close();
     userWrite.close();
 }
-
 
 
 void System::deleteUser() {

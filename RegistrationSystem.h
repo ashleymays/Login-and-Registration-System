@@ -13,11 +13,13 @@ private:
     void loginCredentials();
     void signUpCredentials();
     void createNewUserProfile();
-    bool isRegistered();
+    bool isRegistered(std::string username);
     bool isCorrectPassword();
     void accountOptions();
     void readFile();
     void resetPassword();
+    void resetUsername();
+    void resetUsername1(std::string newUsername);
     void makeTempFile(std::string newPassword);
     void overwriteUserFile();
     void deleteUser();
