@@ -1,4 +1,0 @@
-First Name: Ashley
-Last Name: Mays
-Username: ashleymays091
-Password: password
