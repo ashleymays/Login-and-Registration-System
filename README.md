@@ -13,7 +13,7 @@ A login and registration comsole application made with C++20.
 ## Project Description
 A login and registration system that allows a user to create a new profile, complete with a username and password. The user can then read their profile, change their password, or delete it. The user profile will exist even after the project is closed, making it possible to login at a later date. The program was created entirely in C++ using the latest standards.
 
-I initially wrote this program because of an [article that listed the best C++ projects](https://hackr.io/blog/cpp-projects). I know, it’s pretty uninspiring. Later on, though, it became more of a passion project as I encountered several obstacles that taught me various aspects of the C++ language. During the course of this (estimated) two-week long project, I learned about the filesystem library, directories and paths, linkers, and exceptions. I also gained a deeper understanding of the fstream library and good programming practices.
+During the course of this (estimated) two-week long project, I learned about the filesystem library, directories and paths, linkers, and exceptions. I also gained a deeper understanding of the fstream library and modern programming practices.
 
 Later on, I hope to implement a way to keep track of the time and date a user last logged into their profile.
 
