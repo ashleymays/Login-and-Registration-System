@@ -123,7 +123,7 @@ void System::createNewUserProfile() {
 
 bool System::isRegistered(std::string username)
 {
-    fs::path myPath( "..\\Login and Registration System" ); // relative path
+    fs::path myPath( "..\\Login-and-Registration-System" ); // relative path
     std::string fileName = "User_" + username + ".txt";
 
     // read all files in the project folder
