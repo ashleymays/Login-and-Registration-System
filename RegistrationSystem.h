@@ -19,7 +19,7 @@ private:
     void readFile();
     void resetPassword();
     void resetUsername();
-    void resetUsername1(std::string newUsername);
+    void resetUsername(std::string newUsername);
     void makeTempFile(std::string newPassword);
     void overwriteUserFile();
     void deleteUser();

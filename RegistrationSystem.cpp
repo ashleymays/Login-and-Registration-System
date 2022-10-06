@@ -248,7 +248,7 @@ void System::resetUsername() {
     } while (isRegistered(newUsername));
 
     // delete old user file and make new file with the new username 
-    resetUsername1(newUsername);
+    resetUsername(newUsername);
     deleteFile("User_" + m_username + ".txt");
     std::string oldUsername = m_username;
     m_username = newUsername;
@@ -269,7 +269,7 @@ void System::resetUsername() {
     }
 }
 
-void System::resetUsername1(std::string newUsername) {
+void System::resetUsername(std::string newUsername) {
     std::ofstream newFileWrite;
     std::ifstream oldFileRead;
     std::string oldFile = "User_" + m_username + ".txt";
